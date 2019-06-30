@@ -1,24 +1,26 @@
-
 <%@page import="com.ors.model.Company"%>
-<%@page import="java.io.* %>
+<%@page import="java.io.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Online Recruitment System</title>
-    <style type="text/css">
-        <!--
-        .style1 {
-            color: #CC6633;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .style2 {color: #FFFFFF}
-        -->
-    </style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Online Recruitment System</title>
+<style type="text/css">
+<!--
+.style1 {
+	color: #CC6633;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.style2 {
+	color: #FFFFFF
+}
+-->
+</style>
     <script language="javascript">
 			function check()
 			{
