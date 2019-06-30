@@ -57,7 +57,7 @@
     <td width="1" height="449" valign="top" bgcolor="#624631"><jsp:include page="${request.contextPath}/menu.jsp"/></td>
     <td width="759" valign="top" bgcolor="#E8E1C7">
         <div align="right" >
-            <p><img src="images\Login.jpg" width="209" height="166"></p>
+            <p><img src="${pageContext.request.contextPath}/images/Login.jpg" width="209" height="166"></p>
         </div>
         <form name="login" method="post" action="<%=request.getContextPath() %>/LoginServlet">
 

@@ -52,7 +52,7 @@ a:active {
 			
 			}
 			%>
-            <img src="images\home_recruitment_link[1].jpg" width="100%" height="349"></div></td>
+            <img src="${pageContext.request.contextPath}/images/home_recruitment_link[1].jpg" width="100%" height="349"></div></td>
           </tr>
     </table>
 </body>

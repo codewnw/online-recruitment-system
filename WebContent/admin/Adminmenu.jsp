@@ -15,13 +15,13 @@
 <table width="160" height="593" border="0" bgcolor="#666734">
   <tr>
     <td width="155" valign="top" bgcolor="#666734"><p align="center">&nbsp;</p>
-      <p align="center"><img src="images\logosit.jpg" width="100%" height="100%" /></p>
+      <p align="center"><img src="${pageContext.request.contextPath}/images/logosit.jpg" width="100%" height="100%" /></p>
       <ul>
-        <li><a href="index.jsp">Home</a></li><br /><br />
-        <li><a href="AdminCandidateDetails.jsp">Candidate Details</a></li><br /><br />
-        <li><a href="AdminCompanyDetails.jsp">Company Details</a></li><br /><br />
-        <li><a href="ChangePassword.jsp">Change Password</a></li><br /><br />
-        <li><a href="Login.jsp">LogOut</a></li>
+        <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li><br /><br />
+        <li><a href="${pageContext.request.contextPath}/admin/AdminCandidateDetails.jsp">Candidate Details</a></li><br /><br />
+        <li><a href="${pageContext.request.contextPath}/admin/AdminCompanyDetails.jsp">Company Details</a></li><br /><br />
+        <li><a href="${pageContext.request.contextPath}/admin/ChangePassword.jsp">Change Password</a></li><br /><br />
+        <li><a href="${pageContext.request.contextPath}/common/Login.jsp">LogOut</a></li>
     </ul>
 	</td>
   </tr>

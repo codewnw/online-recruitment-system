@@ -31,12 +31,12 @@ a:active {
     
     
     <td width="14%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style5">
-      <div align="center"><a href="index.jsp">Home</a></div>
+      <div align="center"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></div>
     </div></td>
-     <td width="18%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="<%=request.getContextPath() %>/candidate-registration.jsp">New Registration</a></div></td>
-    <td width="22%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="<%=request.getContextPath() %>/CompanyReg.jsp">Company Registration</a></div></td>
-    <td width="14%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="<%=request.getContextPath() %>/AboutUs.jsp">About Us </a></div></td>
-    <td width="16%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="<%=request.getContextPath() %>/ContactUs.jsp">Contact Us </a></div></td>
+     <td width="18%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="${pageContext.request.contextPath}/candidate-registration.jsp">New Registration</a></div></td>
+    <td width="22%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="${pageContext.request.contextPath}/CompanyReg.jsp">Company Registration</a></div></td>
+    <td width="14%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="${pageContext.request.contextPath}/AboutUs.jsp">About Us </a></div></td>
+    <td width="16%" bordercolor="#4E3A34" bgcolor="#4E2B21"><div align="center" class="style4"><a href="${pageContext.request.contextPath}/ContactUs.jsp">Contact Us </a></div></td>
    
   </tr>
 </table>
