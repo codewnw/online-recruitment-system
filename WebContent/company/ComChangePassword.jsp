@@ -73,23 +73,23 @@
     
                     </font>
                    
-                    <form name="form1" method="post" action="<%= request.getContextPath() %>/UpdatePassword" onSubmit="return check()">
+                    <form name="form1" method="post" action="<%= request.getContextPath() %>/UpdatePassword" onSubmit="return check2()">
                         <table width="617" height="150" border="1" align="right" cellpadding="1" bordercolor="#CC99FF">
                             <tr>
                                 <td height="23" colspan="3" bordercolor="#CC6633" bgcolor="#CC99CC"><div align="center" class="style10 style1"><strong>Change Password </strong></div></td>
                           </tr>
                             <tr>
                                 <td width="218" height="26" bordercolor="#CC6633" bgcolor="#9999cc" ><span class="style15 style9"><strong> Username </strong></span></td>
-                                <td width="202" bordercolor="#CC6633" bgcolor="#FFFFFF"><input name="user" type="text"  id="user" value="<%= session.getAttribute("s1").toString() %>" size="35"></td>
+                                <td width="202" bordercolor="#CC6633" bgcolor="#FFFFFF"><input name="username" type="text"  id="user" value="<%= session.getAttribute("s1").toString() %>" size="35"></td>
                                 <td width="175" rowspan="5" bordercolor="#CC6633" bgcolor="#FFFFFF"><img src="<%=request.getContextPath()+"/images/gI_0_OnlineMarketingForWomenEntrepreneurs[1] copy.jpg" %>" width="175" height="140"></td>
                             </tr>
                             <tr>
                                 <td height="26" bordercolor="#CC6633" bgcolor="#9999cc"><span class="style15 style9"><strong>Old Password </strong></span></td>
-                                <td bordercolor="#CC6633" bgcolor="#FFFFFF"><input name="pass" type="password"  id="pass"  size="35"></td>
+                                <td bordercolor="#CC6633" bgcolor="#FFFFFF"><input name="oldPasssword" type="password"  id="pass"  size="35"></td>
                             </tr>
                             <tr>
                                 <td height="26" bordercolor="#CC6633" bgcolor="#9999cc"><span class="style15 style9"><strong>New Password </strong></span></td>
-                                <td bordercolor="#CC6633" bgcolor="#FFFFFF"><input name="newpass2" type="password" id="newpass2" size="35"></td>
+                                <td bordercolor="#CC6633" bgcolor="#FFFFFF"><input name="password" type="password" id="newpass2" size="35"></td>
                             </tr>
                             <tr>
                                 <td height="26" bordercolor="#CC6633" bgcolor="#9999cc"><span class="style15 style9"><strong>Retype New Password</strong></span></td>

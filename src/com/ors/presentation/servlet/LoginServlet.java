@@ -16,25 +16,14 @@ import com.ors.service.impl.LoginServiceImpl;
 import com.ors.service.services.LoginService;
 import com.sun.org.apache.xml.internal.security.c14n.CanonicalizerSpi;
 
-/**
- * Servlet implementation class LoginServlet
- */
 @WebServlet(urlPatterns = { "/LoginServlet", "/UpdatePassword" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public LoginServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String requestedURI = request.getRequestURI();
@@ -54,9 +43,9 @@ public class LoginServlet extends HttpServlet {
 			if (isValidUser) {
 
 				HttpSession session = request.getSession();
-				session.setAttribute("s1", userName);
+				session.setAttribute("username", userName);
 
-				String userType = login.getUserType();
+				String userType = loginService.getUserType(userName);
 
 				if (userType.equals("admin")) {
 					request.getRequestDispatcher("admin/AdminHomePage.jsp").forward(request, response);
@@ -75,7 +64,32 @@ public class LoginServlet extends HttpServlet {
 			}
 
 		} else if (requestedURI.contains("UpdatePassword")) {
-//			if(request)
+			String userName = request.getParameter("username");
+			String oldPassword = request.getParameter("oldPassword");
+			String password = request.getParameter("password");
+
+			LoginService loginService = new LoginServiceImpl();
+			int updateCount = loginService.updatePassword(userName, oldPassword, password);
+			
+			if (updateCount > 0) {
+
+				HttpSession session = request.getSession();
+				session.setAttribute("username", userName);
+
+				String userType = loginService.getUserType(userName);
+
+				if (userType.equals("admin")) {
+					request.getRequestDispatcher("admin/AdminHomePage.jsp").forward(request, response);
+				} else if (userType.equals("comp")) {
+					session.setAttribute("user", userName);
+					request.getRequestDispatcher("company/CompanyHomePage.jsp").forward(request, response);
+				} else if (userType.equals("cand")) {
+					CandidateDao candidateDao = new CandidateDaoImpl();
+					session.setAttribute("user", candidateDao.getCandidateByUserName(userName));
+					request.getRequestDispatcher("candidate/CandidateHomePage.jsp").forward(request, response);
+				} else {
+					response.sendRedirect("index.jsp");
+				}}
 		}
 	}
 

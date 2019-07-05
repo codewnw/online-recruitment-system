@@ -21,7 +21,7 @@ public class CandidateDaoImpl implements CandidateDao {
 	public int insertCandidate(Candidate candidate) {
 		int retVal = 0;
 
-		String insertCandidate = "INSERT INTO CANDIDATE VALUES(?,?,?,?,?,?)";
+		String insertCandidate = "INSERT INTO ORS_CANDIDATE VALUES(?,?,?,?,?)";
 		String insertAddress = "INSERT INTO ORS_ADDRESS VALUES(?,?,?,?,?,?,?,?)";
 		String insertContact = "INSERT INTO CONTACT VALUES(?,?,?,?,?)";
 		String insertEducation = "INSERT INTO ORS_EDUCATION VALUES(?,?,?,?,?,?)";
@@ -30,23 +30,24 @@ public class CandidateDaoImpl implements CandidateDao {
 		try (Connection con = ConnectionProvider.getConnection();
 				PreparedStatement psCand = con
 						.prepareStatement(insertCandidate);
-				PreparedStatement psAddress = con
+				/*PreparedStatement psAddress = con
 						.prepareStatement(insertAddress);
 				PreparedStatement psContact = con
 						.prepareStatement(insertContact);
 				PreparedStatement psEducation = con
 						.prepareStatement(insertEducation);
 				PreparedStatement psExperience = con
-						.prepareStatement(insertExperience);) {
+						.prepareStatement(insertExperience);*/) {
 
 			psCand.setString(1, candidate.getUserName());
 			psCand.setString(2, candidate.getName());
 			psCand.setString(3, candidate.getGender());
 			psCand.setString(4, candidate.getDob());
-			psCand.setString(5, "cand");
-			psCand.setBoolean(6, candidate.isExperienced());
-			psCand.executeUpdate();
+			//psCand.setString(5, "cand");
+			psCand.setBoolean(5, candidate.isExperienced());
+			retVal = psCand.executeUpdate();
 
+			/*
 			psAddress.setString(1, candidate.getAddress().getAddressLine1());
 			psAddress.setString(2, candidate.getAddress().getAddressLine2());
 			psAddress.setString(3, candidate.getAddress().getCity());
@@ -85,11 +86,10 @@ public class CandidateDaoImpl implements CandidateDao {
 			psExperience.setInt(6, candidate.getExperience()
 					.getTotalYearsOfExperience());
 			psExperience.executeUpdate();
+			*/
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return retVal;
 	}
 
@@ -110,20 +110,21 @@ public class CandidateDaoImpl implements CandidateDao {
 		Candidate candidate = new Candidate();
 		try (Connection con = ConnectionProvider.getConnection();
 				Statement stmt = con.createStatement();) {
-			ResultSet rs = stmt.executeQuery("SELECT * FROM CANDIDATE WHERE USERNAME = '"+userName+"'");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM ORS_CANDIDATE WHERE USERNAME = '"+userName+"'");
 			
 			rs.next();
 			candidate.setUserName(rs.getString(1));
 			candidate.setName(rs.getString(2));
 			candidate.setGender(rs.getString(3));
 			candidate.setDob(rs.getString(4));
-			candidate.setExperienced(rs.getBoolean(6));
+			candidate.setExperienced(rs.getBoolean(5));
 			
+			/*
 			rs = stmt.executeQuery("SELECT * FROM ORS_CONTACT WHERE USERNAME = '"+userName+"'");
 			rs = stmt.executeQuery("SELECT * FROM ORS_ADDRESS WHERE USERNAME = '"+userName+"'");
 			rs = stmt.executeQuery("SELECT * FROM ORS_EDUCATION WHERE USERNAME = '"+userName+"'");
 			rs = stmt.executeQuery("SELECT * FROM ORS_EXPERIENCE WHERE USERNAME = '"+userName+"'");
-
+*/
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

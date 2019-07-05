@@ -19,13 +19,11 @@ public class LoginDaoImpl implements LoginDao {
 		String userName = login.getUserName();
 		String password = login.getPassword();
 
-		try (Connection con = ConnectionProvider.getConnection();
-				Statement stmt = con.createStatement()) {
+		try (Connection con = ConnectionProvider.getConnection(); Statement stmt = con.createStatement()) {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM LOGIN");
 
 			while (rs.next()) {
-				if (userName.equals(rs.getString(1))
-						&& password.equals(rs.getString(2))) {
+				if (userName.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
 					result = true;
 					login.setUserType(rs.getString(3));
 				}
@@ -40,13 +38,9 @@ public class LoginDaoImpl implements LoginDao {
 	public int insertLogin(Login login) {
 		int insertedRecordCount = 0;
 
-		try (Connection con = ConnectionProvider.getConnection();
-				Statement stmt = con.createStatement()) {
-			insertedRecordCount = stmt
-					.executeUpdate("INSERT INTO LOGIN VALUES('"
-							+ login.getUserName() + "', '"
-							+ login.getPassword() + "', '"
-							+ login.getUserType() + "')");
+		try (Connection con = ConnectionProvider.getConnection(); Statement stmt = con.createStatement()) {
+			insertedRecordCount = stmt.executeUpdate("INSERT INTO LOGIN VALUES('" + login.getUserName() + "', '"
+					+ login.getPassword() + "', '" + login.getUserType() + "')");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -57,9 +51,25 @@ public class LoginDaoImpl implements LoginDao {
 	public int updatePassword(String userName, String oldPassword, String newPassword) {
 		int retVal = 0;
 
-		try(Connection con = ConnectionProvider.getConnection(); Statement stmt = con.createStatement()){
-			String updatePasswordQuery = "Update Login set Password='" + newPassword + "'where Username='" + userName + "'and Password='" + oldPassword + "'";
+		try (Connection con = ConnectionProvider.getConnection(); Statement stmt = con.createStatement()) {
+			String updatePasswordQuery = "Update Login set Password='" + newPassword + "'where Username='" + userName
+					+ "'and Password='" + oldPassword + "'";
 			retVal = stmt.executeUpdate(updatePasswordQuery);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return retVal;
+	}
+
+	@Override
+	public String getUserType(String userName) {
+		String retVal = "";
+
+		try (Connection con = ConnectionProvider.getConnection(); Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT * FROM LOGIN WHERE USERNAME = '" + userName + "'");
+
+			rs.next();
+			return rs.getString(3);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

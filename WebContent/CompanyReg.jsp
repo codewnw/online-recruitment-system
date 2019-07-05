@@ -246,7 +246,7 @@ a:active {
 								<td height="51" colspan=2 bgcolor="#F2DFE2"><div
 										align="center">
 										<br> <input TYPE="reset"> &nbsp;&nbsp;<input
-											TYPE="submit" value="Submit" onclick="return valid()">
+											TYPE="submit" value="Submit" onclick="return valid2()">
 									</div></td>
 							</tr>
 						</table>

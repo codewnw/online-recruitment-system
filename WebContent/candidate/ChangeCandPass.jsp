@@ -1,5 +1,6 @@
-<%@page import="java.sql.*,com.ors.dao.util.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*,com.ors.dao.util.*"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -55,8 +56,8 @@
 </script>
 </head>
 <body>
-	<jsp:useBean id="scp" class="com.ors.bean.ChangeCandPass" />
-	<jsp:setProperty name="scp" property="*" />
+	<%-- <jsp:useBean id="scp" class="com.ors.bean.ChangeCandPass" />
+	<jsp:setProperty name="scp" property="*" /> --%>
 	<table width="100%" align="left" height="482" border="1">
 		<tr>
 			<td height="55" colspan="2" bgcolor="#FFFFFF"><jsp:include
@@ -65,8 +66,11 @@
 		<tr>
 			<td width="1%"><jsp:include page="/candidate/Candidatemenu.jsp" /></td>
 			<td width="99%" valign="top" bgcolor="#D6C0C9" align="center"><p>&nbsp;</p>
-				<p class="style4">&nbsp;</p> <span class="style4"> <%
- 	try {
+				<p class="style4">&nbsp;</p> <span class="style4"> 
+				<%-- 
+				<%
+ 	
+try {
 
  		String c1 = (String) session.getAttribute("s1");
  		String c2 = (String) session.getAttribute("s2");
@@ -78,10 +82,11 @@
  		String s1 = null;
  		while (rs.next()) {
  			s1 = rs.getString(1);
- %>
+ %> 
+ --%>
 			</span>
-				<form name="form1" method="post" action="SaveCandPass.jsp"
-					onsubmit="return check()">
+				<form name="form1" method="post" action="${pageContext.request.contextPath}/UpdatePassword"
+					onsubmit="return check2()">
 					<table width="617" height="150" border="1" align="right"
 						cellpadding="1" bordercolor="#CC99FF">
 						<tr>
@@ -97,7 +102,7 @@
 								bgcolor="#9999cc"><span class="style15 style9"><strong>
 										Username </strong></span></td>
 							<td width="202" bordercolor="#CC6633" bgcolor="#FFFFFF"><input
-								name="username" type="text" id="user" value="<%=s1%>" size="35"></td>
+								name="username" type="text" id="user" value="<%= session.getAttribute("username").toString() %>" size="35"></td>
 							<td width="175" rowspan="5" bordercolor="#CC6633"
 								bgcolor="#FFFFFF"><img
 								src="${pageContext.request.contextPath}/images/gI_0_OnlineMarketingForWomenEntrepreneurs[1] copy.jpg"
@@ -107,13 +112,13 @@
 							<td height="26" bordercolor="#CC6633" bgcolor="#9999cc"><span
 								class="style15 style9"><strong>Old Password </strong></span></td>
 							<td bordercolor="#CC6633" bgcolor="#FFFFFF"><input
-								name="password" type="password" id="pass" size="35"></td>
+								name="oldPassword" type="oldPassword" id="oldPassword" size="35"></td>
 						</tr>
 						<tr>
 							<td height="26" bordercolor="#CC6633" bgcolor="#9999cc"><span
 								class="style15 style9"><strong>New Password </strong></span></td>
 							<td bordercolor="#CC6633" bgcolor="#FFFFFF"><input
-								name="new_pass" type="password" id="new_pass" size="35"></td>
+								name="password" type="password" id="password" size="35"></td>
 						</tr>
 						<tr>
 							<td height="26" bordercolor="#CC6633" bgcolor="#9999cc"><span
@@ -130,12 +135,12 @@
 								</div></td>
 						</tr>
 					</table>
-				</form> <%
+				</form><%--  <%
  	}
  	} //try
  	catch (Exception e) {
  		out.println(e);
  	}
- %>
+ %> --%>
 </body>
 </html>

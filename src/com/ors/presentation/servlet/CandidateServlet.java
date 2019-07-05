@@ -11,40 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.ors.constant.Action;
 import com.ors.model.Candidate;
 
-/**
- * Servlet implementation class CandidateServlet
- */
 @WebServlet("/CandidateServlet/*")
 public class CandidateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CandidateServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public CandidateServlet() {
+		super();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String requestUri = request.getRequestURI();
 		String[] requestUriSplit = requestUri.split("/");
-		String action = requestUriSplit[requestUriSplit.length-1];
-		
-		System.out.println(">> "+this.getClass().getSimpleName()+" Action is "+action);
-		
+		String action = requestUriSplit[requestUriSplit.length - 1];
+
+		System.out.println(">> " + this.getClass().getSimpleName() + " Action is " + action);
+
 		switch (action) {
-		
+
 		case "Add":
 			addCandidate();
 			break;
@@ -58,10 +46,11 @@ public class CandidateServlet extends HttpServlet {
 		default:
 			viewCandidate();
 			break;
-		}	
+		}
 	}
 
-	private void editCandidate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void editCandidate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		Candidate cand = new Candidate();
 		cand.setName("Test");
 		request.setAttribute("cand", cand);
@@ -70,12 +59,12 @@ public class CandidateServlet extends HttpServlet {
 
 	private void viewCandidate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void addCandidate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

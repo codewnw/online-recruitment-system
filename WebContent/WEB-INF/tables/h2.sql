@@ -108,7 +108,7 @@ CREATE TABLE ORS_CANDIDATE (
   USERNAME varchar(50),
   NAME varchar(50),
   GENDER varchar(10),
-  DOB varchar(50),
+  DOB varchar(250),
   IS_EXPERIENCED BOOLEAN
 )
 /
