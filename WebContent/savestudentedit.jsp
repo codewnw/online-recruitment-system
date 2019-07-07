@@ -13,7 +13,7 @@
     <body>
         <%
         try {
-            String c1 = (String) session.getAttribute("s1");
+            String c1 = (String) session.getAttribute("username");
             String c2 = (String) session.getAttribute("s2");
             String old_cat = request.getParameter("category");
             String new_cat = request.getParameter("cat");

@@ -267,7 +267,7 @@
 			String branch=null;
 			String degree=null;
 			/* HttpSession ss1=request.getSession(); */
-			Candidate s1=(Candidate)session.getAttribute("s1");
+			Candidate s1=(Candidate)session.getAttribute("username");
 			/* if(cep.candFetch(s1))
 			{
 				gender=cep.degree;

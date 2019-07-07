@@ -131,7 +131,7 @@
         try {
 
             
-            String c1 = (String) session.getAttribute("s1");
+            String c1 = (String) session.getAttribute("username");
 			System.out.println(c1);
            	Connection con = ConnectionProvider.getConnection();
 			Statement st = con.createStatement();

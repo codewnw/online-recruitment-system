@@ -38,7 +38,7 @@
 <body bgcolor="#FFFFFF" text="#0033FF" link="#CC6600">
     <% try {
 
-                String c1 = (String)session.getAttribute("s1");
+                String c1 = (String)session.getAttribute("username");
                 String c2 = (String)session.getAttribute("s2");
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 Connection con = DriverManager.getConnection("jdbc:odbc:OnlineExam");

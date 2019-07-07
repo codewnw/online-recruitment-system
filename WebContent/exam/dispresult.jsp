@@ -15,7 +15,7 @@ body {
 <p><font color="#CC0000" size="4">
   <%
         String mark = session.getAttribute("mark").toString();
-        String uname = session.getAttribute("s1").toString();
+        String uname = session.getAttribute("username").toString();
         out.println("Your ID  is:  " + uname + "     You got  "+ mark + " Mark Out of 10");
 		 
 %><br>

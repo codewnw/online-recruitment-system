@@ -41,7 +41,7 @@ a:active {
   <tr>
     <td width="10%" height="100%" bgcolor="#624631"><jsp:include page="menu.html"/></td>
     <td width="80%" height="100%"valign="top" bgcolor="#FFFFFF">
-    <img src="images/fgi_recruitment_home[1].jpg" width="100%" height="300"></td>
+    <img src="${pageContext.request.contextPath}/images/fgi_recruitment_home[1].jpg" width="100%" height="300"></td>
     <td width="10%" height="100%" bgcolor="#624631">
     <div class="style4"><marquee behavior="scroll" direction="up" scrolldelay="30sec" onMouseOver="stop">
     <span class="style7">Deck your hearts with lights of Success...Sure!! that you will reach your destiny</span>

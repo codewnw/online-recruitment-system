@@ -2,7 +2,7 @@
 <jsp:useBean id="sejd" class="com.ors.bean.SaveEditJobDetails" />
 <jsp:setProperty name="sejd" property="*" />
 <%
-	String c1=(String) session.getAttribute("s1");
+	String c1=(String) session.getAttribute("username");
 	String name=null;
 	try{
 		Connection con=ConnectionProvider.getConnection();

@@ -25,7 +25,7 @@
 			<td width="1" height="597"><jsp:include page="Candidatemenu.jsp" /></td>
 			<td width="738" valign="top">
 				<%
-        String uname = session.getAttribute("s1").toString();
+        String uname = session.getAttribute("username").toString();
         String sql = "";
         Connection con;
         Statement st;

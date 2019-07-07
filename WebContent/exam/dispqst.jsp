@@ -16,7 +16,7 @@
         int qno = Integer.parseInt(request.getParameter("qno"));
         int jobId = Integer.parseInt(session.getAttribute("jobId").toString());
         int examId = Integer.parseInt(session.getAttribute("examId").toString());
-        String studentid = session.getAttribute("s1").toString();
+        String studentid = session.getAttribute("username").toString();
         String qstn = "", ch1 = "", ch2 = "", ch3 = "", ch4 = "", ans = "";
         try {
             sql = "select * from questions where job_ID='" + jobId + "' and exam_id = '"+examId+"' and Ques_No=" + qno;

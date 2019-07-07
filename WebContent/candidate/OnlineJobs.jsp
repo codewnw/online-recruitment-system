@@ -44,7 +44,7 @@
               </tr>
              
               <% 	
-	  		//String c1=(String) session.getAttribute("s1");
+	  		//String c1=(String) session.getAttribute("username");
 			//String name=(String) session.getAttribute("name");
 			try{
 					Connection con=null;

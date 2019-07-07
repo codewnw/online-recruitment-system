@@ -36,7 +36,7 @@ public class JobServlet extends HttpServlet {
 			System.out.println("I am deleting.");
 			CompanyService companyService = new CompanyServiceImpl();
 			int i = companyService.deletJobById(Long.parseLong(request.getParameter("jobId")),
-					(String) session.getAttribute("s1"));
+					(String) session.getAttribute("username"));
 			if (i == 1) {
 				response.sendRedirect(request.getContextPath() + "/company/ViewJobDetails.jsp");
 			} else {
@@ -77,7 +77,7 @@ public class JobServlet extends HttpServlet {
 				}
 			} else if (requestUri.contains("edit")) {
 				System.out.println("I am editing.");
-				String companyId = (String) session.getAttribute("s1");
+				String companyId = (String) session.getAttribute("username");
 				long jobId = Long.parseLong(request.getParameter("jid"));
 				String post = request.getParameter("post");
 				String criteria = request.getParameter("criteria");

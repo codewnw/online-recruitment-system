@@ -96,7 +96,7 @@
                                 <td colspan="2" bordercolor="#996633" bgcolor="#EBD8D8"><div align="center" class="style1">Add Questions </div></td>
                             </tr>
                             <% String name=null;
-            try {String c1=(String) session.getAttribute("s1");
+            try {String c1=(String) session.getAttribute("username");
 			
                Connection con = ConnectionProvider.getConnection();
 			   Statement stmt=con.createStatement();

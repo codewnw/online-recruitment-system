@@ -30,7 +30,7 @@
         } else {
             try {
 				
-                String studentid = session.getAttribute("s1").toString();
+                String studentid = session.getAttribute("username").toString();
 				System.out.println("CAND_ID: "+studentid);
                 sql = "delete from Temp_Data where CAND_ID='" + studentid + "'";
                 con = ConnectionProvider.getConnection();

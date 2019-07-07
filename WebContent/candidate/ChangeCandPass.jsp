@@ -72,7 +72,7 @@
  	
 try {
 
- 		String c1 = (String) session.getAttribute("s1");
+ 		String c1 = (String) session.getAttribute("username");
  		String c2 = (String) session.getAttribute("s2");
 
  		Connection con = ConnectionProvider.getConnection();

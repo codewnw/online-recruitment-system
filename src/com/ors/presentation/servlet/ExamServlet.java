@@ -42,32 +42,32 @@ public class ExamServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if(session == null || session.getAttribute("s1") == null){
+		if(session == null || session.getAttribute("username") == null){
 			response.sendRedirect("login.jsp");
 		}
 		String requestUri = request.getRequestURI();
 		System.out.println("Request URI: "+requestUri);
 		if(requestUri.contains("create")){
 			CompanyService companyService = new CompanyServiceImpl();
-			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("s1"));
+			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("username"));
 			request.setAttribute("jobIds", jobIds);
 			
 			request.getRequestDispatcher("../company/ExamCreation.jsp").forward(request, response);
 		}
 		else if(requestUri.contains("view")){
 			CompanyService companyService = new CompanyServiceImpl();
-			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("s1"));
+			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("username"));
 			request.setAttribute("jobIds", jobIds);
-			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(0, (String)session.getAttribute("s1"));
+			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(0, (String)session.getAttribute("username"));
 			request.setAttribute("exams", exams);
 			request.getRequestDispatcher("../company/ExamView.jsp").forward(request, response);
 		}
 		else if(requestUri.contains("delete")){
 			CompanyService companyService = new CompanyServiceImpl();
-			companyService.deleteExamByExamIdAdnCompanyId(Long.parseLong(request.getParameter("examId")), (String)session.getAttribute("s1"));
-			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("s1"));
+			companyService.deleteExamByExamIdAdnCompanyId(Long.parseLong(request.getParameter("examId")), (String)session.getAttribute("username"));
+			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("username"));
 			request.setAttribute("jobIds", jobIds);
-			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(0, (String)session.getAttribute("s1"));
+			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(0, (String)session.getAttribute("username"));
 			request.setAttribute("exams", exams);
 			request.getRequestDispatcher("../company/ExamView.jsp").forward(request, response);
 		}
@@ -84,7 +84,7 @@ public class ExamServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
-		if(session == null || session.getAttribute("s1") == null){
+		if(session == null || session.getAttribute("username") == null){
 			response.sendRedirect("login .jsp");
 		}
 		
@@ -99,7 +99,7 @@ public class ExamServlet extends HttpServlet {
 				try {
 					con = ConnectionProvider.getConnection();
 					Statement stmt = con.createStatement();
-					ResultSet rs = stmt.executeQuery("SELECT POST FROM JOBDETAIL WHERE JOB_ID = "+Long.parseLong(request.getParameter("jobId"))+" AND NAME = '"+(String)session.getAttribute("s1")+"'");
+					ResultSet rs = stmt.executeQuery("SELECT POST FROM JOBDETAIL WHERE JOB_ID = "+Long.parseLong(request.getParameter("jobId"))+" AND NAME = '"+(String)session.getAttribute("username")+"'");
 				rs.next();
 				post = rs.getString(1);
 				} catch (SQLException e) {
@@ -115,11 +115,11 @@ public class ExamServlet extends HttpServlet {
 					Long.parseLong(request.getParameter("eid")), 
 					request.getParameter("ename"), 
 					Double.parseDouble(request.getParameter("coff")), 
-					(String)session.getAttribute("s1"));
+					(String)session.getAttribute("username"));
 			System.out.println(exam);
 			int i = companyService.addExam(exam);
 			System.out.println(i);
-			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(exam.getJobId(),(String)session.getAttribute("s1"));
+			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(exam.getJobId(),(String)session.getAttribute("username"));
 			request.setAttribute("exams", exams);
 
 //			response.sendRedirect(request.getContextPath() + "/ExamView.jsp");
@@ -132,14 +132,14 @@ public class ExamServlet extends HttpServlet {
 					Long.parseLong(request.getParameter("examId")), 
 							request.getParameter("examName"), 
 					Double.parseDouble(request.getParameter("cutOff")), 
-					(String)session.getAttribute("s1"));
+					(String)session.getAttribute("username"));
 			
 			CompanyService companyService = new CompanyServiceImpl();
 			companyService.editExam(exam);
 			
-			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("s1"));
+			List<Long> jobIds = companyService.getJobIdsOfExamsForCompany((String)session.getAttribute("username"));
 			request.setAttribute("jobIds", jobIds);
-			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(0, (String)session.getAttribute("s1"));
+			List<Exam> exams = companyService.getExamsByJobIdAndCompanyId(0, (String)session.getAttribute("username"));
 			request.setAttribute("exams", exams);
 			request.getRequestDispatcher("../company/ExamView.jsp").forward(request, response);
 		}

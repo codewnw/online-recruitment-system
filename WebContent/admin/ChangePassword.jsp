@@ -63,7 +63,7 @@
 
  		//              HttpSession s = request.getSession();
  		//  String c1 = request.getParameter("id");
- 		String s1 = (String) session.getAttribute("s1");
+ 		String s1 = (String) session.getAttribute("username");
  		String s2 = (String) session.getAttribute("s2");
  		Connection con = ConnectionProvider.getConnection();
  		Statement st = con.createStatement();

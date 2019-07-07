@@ -1,7 +1,7 @@
 <jsp:useBean id="scoe" class="com.ors.bean.SaveCompEdit" />
 <jsp:setProperty name="scoe" property="*" />
 <%
-	String c1=(String) session.getAttribute("s1");
+	String c1=(String) session.getAttribute("username");
 	System.out.println(c1); 
 	if(scoe.editInsert(c1))
 	{

@@ -51,7 +51,7 @@
 			
             if (eid == null) {
 			
-			String c1=(String) session.getAttribute("s1");
+			String c1=(String) session.getAttribute("username");
                 Connection con = ConnectionProvider.getConnection();
 				Statement stmt=con.createStatement();
                 Statement st = con.createStatement();

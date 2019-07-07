@@ -19,7 +19,7 @@
                 String e=null;
                 String f=null;
                 String g=null;
-                String c1 = (String)session.getAttribute("s1");
+                String c1 = (String)session.getAttribute("username");
                 String c2 = (String)session.getAttribute("s2"); 
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
          out.println(c1);

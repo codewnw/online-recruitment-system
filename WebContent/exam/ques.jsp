@@ -8,7 +8,7 @@
             try {
 
 
-		String studentid=session.getAttribute("s1").toString();
+		String studentid=session.getAttribute("username").toString();
 		String jobID=session.getAttribute("jobId").toString();
 		String examID=session.getAttribute("examId").toString();
 		
