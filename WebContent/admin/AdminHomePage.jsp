@@ -64,7 +64,7 @@ a:active {
 						}
 					%>
 					<img
-						src="${pageContext.request.contextPath}/images/home_recruitment_link[1].jpg"
+						src="${pageContext.request.contextPath}/images/home_recruitment_link.jpg"
 						width="100%" height="349">
 				</div>
 			</td>

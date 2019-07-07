@@ -72,7 +72,7 @@ a:active {
           <tr>
             <td valign="top" height="512" bordercolor="#622D13"><jsp:include page="menu-company.jsp"/></td>
             <td width="961" bordercolor="#622D13" valign="top">
-            <img src="${pageContext.request.contextPath}/images/campus-training[1].jpg" width="743" height="356"></td>
+            <img src="${pageContext.request.contextPath}/images/campus-training.jpg" width="743" height="356"></td>
           </tr>
     </table>
     </body>

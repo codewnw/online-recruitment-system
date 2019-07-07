@@ -31,7 +31,7 @@ a:active {
         <table width="100%" height="150" border="1">
           <tr>
             <td height="144" colspan="2" bgcolor="#666734"><div align="left">
-            <img src="${pageContext.request.contextPath}/images/cropped-cor4[1].jpg" width="100%</h5>" height="140"></div></td>
+            <img src="${pageContext.request.contextPath}/images/cropped-cor4.jpg" width="100%</h5>" height="140"></div></td>
           </tr>
     </table>
 </body>

@@ -11,9 +11,9 @@
 		<tr>
 			<td width="100%" height="160" bordercolor="#FFFFFF" bgcolor="#FFFFFF"><div
 					align="left">
-					<img src="${pageContext.request.contextPath}/images/people1[1].jpg"
+					<img src="${pageContext.request.contextPath}/images/people1.jpg"
 						width="10%" height="151" /> <img
-						src="${pageContext.request.contextPath}/images/companyimage[1].jpg"
+						src="${pageContext.request.contextPath}/images/companyimage.jpg"
 						width="79%" height="156" /> <img
 						src="${pageContext.request.contextPath}/images/bigsmile.jpg"
 						width="10%" height="147" />
