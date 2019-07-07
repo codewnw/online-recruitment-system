@@ -1,4 +1,4 @@
-<%@page import="java.io.*,java.sql.*,com.ors.dao.util.ConnectionProvider;"%>
+<%@page import="java.io.*,java.sql.*,com.ors.dao.util.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"  %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"

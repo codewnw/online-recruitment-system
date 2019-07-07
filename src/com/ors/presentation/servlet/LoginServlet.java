@@ -67,17 +67,17 @@ public class LoginServlet extends HttpServlet {
 			String userName = request.getParameter("username");
 			String oldPassword = request.getParameter("oldPassword");
 			String password = request.getParameter("password");
-
+			System.out.println(userName + " " + oldPassword + " " + password);
 			LoginService loginService = new LoginServiceImpl();
 			int updateCount = loginService.updatePassword(userName, oldPassword, password);
-			
+			System.out.println(updateCount);
 			if (updateCount > 0) {
 
 				HttpSession session = request.getSession();
 				session.setAttribute("username", userName);
 
 				String userType = loginService.getUserType(userName);
-
+				System.out.println(userType);
 				if (userType.equals("admin")) {
 					request.getRequestDispatcher("admin/AdminHomePage.jsp").forward(request, response);
 				} else if (userType.equals("comp")) {
@@ -89,7 +89,8 @@ public class LoginServlet extends HttpServlet {
 					request.getRequestDispatcher("candidate/CandidateHomePage.jsp").forward(request, response);
 				} else {
 					response.sendRedirect("index.jsp");
-				}}
+				}
+			}
 		}
 	}
 

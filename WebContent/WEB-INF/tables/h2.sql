@@ -43,7 +43,7 @@ CREATE TABLE jobdetail (
   criteria varchar2(30),
   vacancies number(10),
   salary number(10),
-  last_Date date,
+  last_Date varchar2(100),
   name varchar2(2000)
 )
 /

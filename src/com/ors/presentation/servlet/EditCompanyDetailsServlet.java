@@ -41,7 +41,7 @@ public class EditCompanyDetailsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		String userName = (String)session.getAttribute("s1");
+		String userName = (String)session.getAttribute("username");
 		if(userName != null){
 			Connection con = null;
 			try {
