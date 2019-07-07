@@ -86,42 +86,38 @@ a:active {
 							</div></td>
 						<td width="123" bordercolor="#663300" bgcolor="#99BBB7"><div
 								align="center" class="style64 style7">
-								<strong>Address</strong>
+								<strong>Gender</strong>
 							</div></td>
 						<td width="117" bordercolor="#663300" bgcolor="#99BBB7"><div
 								align="center" class="style64 style7">
-								<strong>Phone</strong>
+								<strong>DOB</strong>
 							</div></td>
 						<td width="176" bordercolor="#663300" bgcolor="#99BBB7"><div
 								align="center" class="style64 style7">
-								<strong>Email_id</strong>
+								<strong>Is Experienced</strong>
 							</div></td>
 						<td width="112" bordercolor="#663300" bgcolor="#99BBB7"><div
 								align="center" class="style64 style7">
-								<strong>Category</strong>
+								<strong>View</strong>
 							</div></td>
 						<td width="77" bordercolor="#663300" bgcolor="#99BBB7"><div
 								align="center" class="style64 style7">
 								<strong>Delete</strong>
 							</div></td>
-						<td width="73" bordercolor="#663300" bgcolor="#99BBB7"><div
-								align="center" class="style64 style7">
-								<strong>Resume</strong>
-							</div></td>
+						
 					</tr>
 					<%
 						try {
 							Connection con = ConnectionProvider.getConnection();
 							Statement st = con.createStatement();
-							ResultSet rs = st.executeQuery("select *from STUDENTREGISTER");
-							String uid = "", name = "", address = "", phone = "", email = "", cat = "";
+							ResultSet rs = st.executeQuery("select * from ORS_CANDIDATE");
+							String uid = "", name = "", gender = "", dob = "", isExperienced = "";
 							while (rs.next()) {
 								uid = rs.getString(1);
 								name = rs.getString(2);
-								address = rs.getString(13);
-								phone = rs.getString(12);
-								email = rs.getString(11);
-								cat = rs.getString(16);
+								gender = rs.getString(3);
+								dob = rs.getString(4);
+								isExperienced = rs.getBoolean(5)+"";
 					%>
 					<tr>
 						<td height="35" bordercolor="#663300" bgcolor="#99BBB7"><div
@@ -129,20 +125,18 @@ a:active {
 						<td bordercolor="#663300" bgcolor="#99BBB7"><div
 								align="center"><%=name%></div></td>
 						<td bordercolor="#663300" bgcolor="#99BBB7"><div
-								align="center"><%=address%></div></td>
+								align="center"><%=gender%></div></td>
 						<td bordercolor="#663300" bgcolor="#99BBB7"><div
-								align="center"><%=phone%></div></td>
+								align="center"><%=dob%></div></td>
 						<td bordercolor="#663300" bgcolor="#99BBB7"><div
-								align="center"><%=email%></div></td>
-						<td bordercolor="#663300" bgcolor="#99BBB7"><div
-								align="center"><%=cat%></div></td>
-						<td bordercolor="#663300" bgcolor="#99BBB7"><div
-								align="center">
-								<a href="Delete.jsp?uid=<%=uid%>" class="style12">Delete</a>
-							</div></td>
+								align="center"><%=isExperienced%></div></td>
 						<td bordercolor="#663300" bgcolor="#99BBB7"><div
 								align="center">
 								<a href="Resume.jsp?uid=<%=uid%>"><strong>View</strong></a>
+							</div></td>
+							<td bordercolor="#663300" bgcolor="#99BBB7"><div
+								align="center">
+								<a href="Delete.jsp?uid=<%=uid%>" class="style12">Delete</a>
 							</div></td>
 					</tr>
 					<%

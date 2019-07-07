@@ -43,7 +43,7 @@ a:active {
     </head>
 <%-- <% 
 	String c1=(String) session.getAttribute("username");
-	//session.setAttribute("s1", c1);
+	//session.setAttribute("username", c1);
 	String name=null;
 	Connection con=null;
 	try{

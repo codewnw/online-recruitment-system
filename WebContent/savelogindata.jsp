@@ -19,7 +19,7 @@
             String s2 = request.getParameter("password");
 
 
-            session.setAttribute("s1", s1);
+            session.setAttribute("username", s1);
             session.setAttribute("s2", s2);
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection conn = DriverManager.getConnection("jdbc:odbc:OnlineExam");

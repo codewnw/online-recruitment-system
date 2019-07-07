@@ -5,7 +5,7 @@
             String s2 = request.getParameter("password");
 			HttpSession ss1=request.getSession();
             HttpSession ss2=request.getSession();
-			ss1.setAttribute("s1", s1);
+			ss1.setAttribute("username", s1);
             ss2.setAttribute("s2", s2);
 			
 			if(log.login(s1, s2))
