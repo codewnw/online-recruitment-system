@@ -17,7 +17,7 @@
 <table width="160" height="593" border="0" bordercolor="#CD9967" bgcolor="#666734">
   <tr>
   	<td width="155" valign="top" bgcolor="#CD9967">
-      <p align="center"><img src="${pageContext.request.contextPath}/images/logo[1] copy.jpg" width="160" height="150"/></p>
+      <p align="center"><img src="${pageContext.request.contextPath}/images/logo.jpg" width="160" height="150"/></p>
 	  <p>
       <ul>
 	    <li><a href="<%=request.getContextPath() +"/index.jsp" %>">Home</a><br>

@@ -11,7 +11,7 @@
 <table width="100%" border="0">
   <tr>
     <td height="140"><div align="center">
-    <img src="${pageContext.request.contextPath}/images/dist_banner[1] copy.jpg" width="100%" height="140" /></div></td>
+    <img src="${pageContext.request.contextPath}/images/dist_banner.jpg" width="100%" height="140" /></div></td>
   </tr>
 </table>
 </body>

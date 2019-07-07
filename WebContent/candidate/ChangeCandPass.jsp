@@ -105,7 +105,7 @@ try {
 								name="username" type="text" id="user" value="<%= session.getAttribute("username").toString() %>" size="35"></td>
 							<td width="175" rowspan="5" bordercolor="#CC6633"
 								bgcolor="#FFFFFF"><img
-								src="${pageContext.request.contextPath}/images/gI_0_OnlineMarketingForWomenEntrepreneurs[1] copy.jpg"
+								src="${pageContext.request.contextPath}/images/change-password.jpg"
 								width="175" height="140"></td>
 						</tr>
 						<tr>
